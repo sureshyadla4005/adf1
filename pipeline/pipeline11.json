@@ -1,0 +1,73 @@
+{
+	"name": "pipeline11",
+	"properties": {
+		"activities": [
+			{
+				"name": "BatcAccountCustom1",
+				"type": "Custom",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"command": "{\n  \"name\": \"MyCustomActivity\",\n  \"properties\": {\n    \"description\": \"Custom activity sample\",\n    \"activities\": [{\n      \"type\": \"Custom\",\n      \"name\": \"MyCustomActivity\",\n      \"linkedServiceName\": {\n        \"referenceName\": \"AzureBatchLinkedService\",\n        \"type\": \"LinkedServiceReference\"\n      },\n      \"typeProperties\": {\n        \"command\": \"cmd /c echo hello world\"\n      }\n    }]\n  }\n}",
+					"resourceLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"folderPath": "test",
+					"referenceObjects": {
+						"linkedServices": [],
+						"datasets": []
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureBatch1",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "BatcAccountCustom1_copy1",
+				"type": "Custom",
+				"dependsOn": [
+					{
+						"activity": "BatcAccountCustom1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"command": "python1.py",
+					"resourceLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"folderPath": "test",
+					"referenceObjects": {
+						"linkedServices": [],
+						"datasets": []
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureBatch1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
