@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"command": "{\n  \"name\": \"MyCustomActivity\",\n  \"properties\": {\n    \"description\": \"Custom activity sample\",\n    \"activities\": [{\n      \"type\": \"Custom\",\n      \"name\": \"MyCustomActivity\",\n      \"linkedServiceName\": {\n        \"referenceName\": \"AzureBatchLinkedService\",\n        \"type\": \"LinkedServiceReference\"\n      },\n      \"typeProperties\": {\n        \"command\": \"cmd /c echo hello world\"\n      }\n    }]\n  }\n}",
+					"command": "cmd /c echo hello world\n      ",
 					"resourceLinkedService": {
 						"referenceName": "AzureBlobStorage1",
 						"type": "LinkedServiceReference"
