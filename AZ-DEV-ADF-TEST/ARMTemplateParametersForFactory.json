@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "AZ-DEV-ADF-TEST"
+		},
+		"AzureBatch1_accessKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"BatchAccountGen2_accountKey": {
+			"value": ""
+		},
+		"AzureBatch1_properties_typeProperties_accountName": {
+			"value": "syba"
+		},
+		"AzureBatch1_properties_typeProperties_batchUri": {
+			"value": "https://syba.eastus2.batch.azure.com"
+		},
+		"AzureBatch1_properties_typeProperties_poolName": {
+			"value": "sypool1"
+		},
+		"BatchAccountGen2_properties_typeProperties_url": {
+			"value": "https://sysa1.dfs.core.windows.net"
+		}
+	}
+}
